@@ -1,0 +1,27 @@
+{
+  "name": "raft",
+  "version": "1.0.0",
+  "description": "raft from scratch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "build": "npx tsc",
+    "start": "node ./dist/index.js",
+    "build:start": "npm run clean && npm run build && npm run start"
+  },
+  "keywords": [
+    "raft",
+    "system design"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^22.13.5",
+    "tsx": "^4.19.3"
+  }
+}
