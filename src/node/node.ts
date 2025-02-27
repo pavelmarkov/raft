@@ -27,6 +27,7 @@ export class Node {
   status: NodeStatus;
   election: ElectionState;
   log: LogEntry[];
+  peers: Node[];
 
   constructor(id?: string) {
     this.id = id ?? uuidv4();
@@ -36,9 +37,28 @@ export class Node {
       vote: null,
     };
     this.log = [];
+    this.peers = [];
   }
 
   printNode(): void {
     console.log(`[node]: ${this.id}, [status]: ${this.status}`);
+  }
+
+  printLogs(): void {
+    console.log(`[node]: ${this.id}`);
+    this.log.forEach(item => {
+      console.log(`[log id]: ${item.id}, [log data] ${item.data}`);
+    });
+  }
+
+  assignPeer(node: Node): void {
+    this.peers.push(node);
+  }
+
+  sendMessage(log: LogEntry): boolean {
+    this.peers.forEach(node => {
+      node.log.push(log);
+    });
+    return true;
   }
 }
