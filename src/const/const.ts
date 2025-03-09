@@ -1,0 +1,2 @@
+export const ELECTION_TIMEOUT = 3000;
+export const HEARTBEAT_TIMEOUT = 1000;
